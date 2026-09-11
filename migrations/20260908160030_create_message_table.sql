@@ -1,0 +1,12 @@
+-- +goose Up
+CREATE TABLE message (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    chat_id INTEGER NOT NULL,
+    role TEXT NOT NULL,
+    content TEXT NOT NULL,
+    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (chat_id) REFERENCES chat(id) ON DELETE CASCADE
+);
+
+-- +goose Down
+DROP TABLE message;
