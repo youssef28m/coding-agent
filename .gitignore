@@ -1,2 +1,26 @@
+# Environment / secrets
 .env
+.env.*
+!.env.example
+
+# Database
 *.db
+*.sqlite
+*.sqlite3
+
+# Go
+/bin/
+/dist/
+/tmp/
+
+# Coverage / profiling
+coverage.out
+*.prof
+
+# IDE / editors
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db

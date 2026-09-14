@@ -1,6 +1,7 @@
 package chat
 
 import (
+	"errors"
 	"time"
 
 	"github.com/sashabaranov/go-openai"
@@ -60,3 +61,15 @@ func toOpenAIMessages(messages []Message) []openai.ChatCompletionMessage {
 
 	return result
 }
+
+var (
+	ErrChatNotFound      = errors.New("chat not found")
+	ErrCreateChat        = errors.New("failed to create chat")
+	ErrGetChatByID       = errors.New("failed to get chat by ID")
+	ErrListChats         = errors.New("failed to list chats")
+	ErrDeleteChat        = errors.New("failed to delete chat")
+	ErrCreateMessage     = errors.New("failed to create message")
+	ErrGetMessageHistory = errors.New("failed to get message history")
+	ErrGetLLMResponse    = errors.New("failed to get response from llm")
+	ErrStoreLLMMessage   = errors.New("failed to store llm message")
+)

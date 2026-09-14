@@ -2,6 +2,7 @@ package chat
 
 import (
 	"context"
+	"database/sql"
 	"fmt"
 	"time"
 
@@ -22,8 +23,10 @@ type repository struct {
 	q *sqlcgen.Queries
 }
 
-func NewRepository(q *sqlcgen.Queries) Repository {
-	return &repository{q: q}
+func NewRepository(db *sql.DB) Repository {
+	return &repository{
+		q: sqlcgen.New(db),
+	}
 }
 
 func (r *repository) CreateChat(ctx context.Context, name string, createdAt time.Time) (Chat, error) {
